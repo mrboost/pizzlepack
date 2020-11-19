@@ -1,0 +1,220 @@
+<div class="wrapper">
+        <div id="container" class="raise active">
+            <div class="cover">
+                <img id="album-new" alt="Current album cover" class="active" src="">
+            </div>
+            <div class="main">
+                <div class="artists-height-fix">
+                    <h4 id="artists" class="active"></h4></div>
+                <h2 id="name" class="active"></h2>
+            </div>
+        </div>
+    </div>
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap');
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+    font-family:'Roboto';
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.wrapper {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+}
+
+#container {
+    width: 130px;
+    min-height: 121px;
+    position: relative;
+
+	background-position: center;
+	background-size: 400px 360px;
+	
+    margin: auto;
+    transition: opacity .4s ease, transform .4s ease, width .4s ease;
+    opacity: .1;
+	border-radius: 6px;
+    transform: translateX(-500px);
+	box-shadow: 0px 10px 20px 3px rgba(0, 0, 0, .8);
+}
+
+#container.raise {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#container.active {
+	width: 400px;
+}
+
+img {
+  opacity: 0;
+  width: 90px;
+  height: 92px;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+  animation: 2s girandomt infinite forwards linear;
+}
+
+img.active {
+    opacity: 1;
+}
+
+.cover {
+	padding-left: 20px;
+	padding-top: 15px;
+	width: 90px;
+	height: 90px;
+	position: relative;
+	z-index: 9;
+}
+
+.main {
+	position: absolute;
+	padding-left: 15px;
+	padding-top: 10px;
+	top: 0;
+	height: 118px;
+	width: 72%;
+	max-width: 499px;
+	overflow: hidden;
+	padding-right: 0px;
+	right: 0px;
+}
+
+#artists {
+	padding-left: 0px;
+	padding-top: 10px;
+    color:#FFF;
+	font-weight: 400;
+	margin-top: 0;
+	margin-right: 0;
+	margin-left: 0px;
+	margin-bottom: 0;
+	font-size: 28px;
+	text-transform: uppercase;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.75);
+}
+
+#name {
+  color:#FFF;
+	margin-top: 20px;
+	margin-right: 0;
+	margin-left: 0px;
+	margin-bottom: 0;
+	font-size: 48px;
+    font-weight: 400;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.75);
+}
+
+h4 {
+    opacity: 0;
+    white-space: nowrap;
+    padding-left: 0px;
+    transform: translateY(-50px);
+    transition: opacity .4s ease, transform .4s ease;
+    display: inline-block;
+}
+h2 {
+    opacity: 0;
+    white-space: nowrap;
+    padding-left: 0px;
+    transform: translateY(50px);
+    transition: opacity .4s ease, transform .4s ease;
+    display: inline-block;
+}
+
+h4.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+h2.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h4.drop {
+    transform: translateY(100px);
+}
+h2.drop {
+    transform: translateY(100px);
+}
+
+.artists-height-fix {
+    min-height: 20px;
+}
+
+h2.scrolling,
+h4.scrolling {
+    /* -webkit-animation: slide 30s linear infinite; */
+    position: absolute;
+    animation: slide 25s linear infinite;
+}
+
+@keyframes slide {
+    from {
+        /* left: 100%; */
+        transform: translateX(100%);
+    }
+    to {
+        /* left: -100%; */
+        transform: translateX(-100%);
+    }
+}
+@keyframes girandomt {
+  0% {
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0px 0px 30px 40px rgba(255, 255, 255, 0);
+  }
+}
+    </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+(async () => {
+
+var _0x8483=["\x23\x73\x6F\x6E\x67","\x71\x75\x65\x72\x79\x53\x65\x6C\x65\x63\x74\x6F\x72","\x23\x61\x72\x74\x69\x73\x74","\x23\x61\x72\x74\x69\x73\x74\x73","\x23\x6E\x61\x6D\x65","\x63\x6F\x6E\x74\x61\x69\x6E\x65\x72","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x61\x6C\x62\x75\x6D\x2D\x63\x75\x72\x72\x65\x6E\x74","\x61\x6C\x62\x75\x6D\x2D\x6E\x65\x77","\x61\x72\x74\x69\x73\x74\x73","\x6E\x61\x6D\x65","","\x74\x69\x6D\x65\x6C\x69\x6E\x65","\x6C\x6F\x67","\x64\x72\x6F\x70","\x61\x64\x64","\x63\x6C\x61\x73\x73\x4C\x69\x73\x74","\x61\x63\x74\x69\x76\x65","\x72\x65\x6D\x6F\x76\x65","\x72\x61\x69\x73\x65","\x6C\x65\x6E\x67\x74\x68","\x70\x75\x73\x68","\x73\x63\x72\x6F\x6C\x6C\x69\x6E\x67","\x74\x65\x78\x74\x43\x6F\x6E\x74\x65\x6E\x74","\x6F\x66\x66\x73\x65\x74\x57\x69\x64\x74\x68","\x73\x72\x63","\x6C\x69\x6E\x65\x61\x72\x2D\x67\x72\x61\x64\x69\x65\x6E\x74\x28\x72\x67\x62\x61\x28\x30\x2C\x20\x30\x2C\x20\x30\x2C\x20\x2E\x38\x29\x2C\x20\x72\x67\x62\x61\x28\x30\x2C\x20\x30\x2C\x20\x30\x2C\x20\x2E\x38\x29\x29\x2C\x20\x75\x72\x6C\x28","\x29","\x63\x73\x73","\x23\x63\x6F\x6E\x74\x61\x69\x6E\x65\x72"];const song=document[_0x8483[1]](_0x8483[0]);const artist=document[_0x8483[1]](_0x8483[2]);const firstText=document[_0x8483[1]](_0x8483[3]);const secondText=document[_0x8483[1]](_0x8483[4]);var container=document[_0x8483[6]](_0x8483[5]);var currentAlbumCover=document[_0x8483[6]](_0x8483[7]);var newAlbumCover=document[_0x8483[6]](_0x8483[8]);var artistsElement=document[_0x8483[6]](_0x8483[9]);var songName=document[_0x8483[6]](_0x8483[10]);let newArtist=_0x8483[11];let lastSong=_0x8483[11];let newAlbum=_0x8483[11];let newSong=_0x8483[11];let shown=false;const master=gsap[_0x8483[12]]({autoRemoveChildren:true});checkUpdate();setInterval(function(){console[_0x8483[13]](newSong);if(newSong== _0x8483[11]){container[_0x8483[16]][_0x8483[15]](_0x8483[14]);artistsElement[_0x8483[16]][_0x8483[15]](_0x8483[14]);container[_0x8483[16]][_0x8483[18]](_0x8483[17]);container[_0x8483[16]][_0x8483[18]](_0x8483[19]);currentAlbumCover[_0x8483[16]][_0x8483[18]](_0x8483[17]);newAlbumCover[_0x8483[16]][_0x8483[18]](_0x8483[17])};container[_0x8483[16]][_0x8483[18]](_0x8483[14]);container[_0x8483[16]][_0x8483[15]](_0x8483[19])},1000);function showText(){const _0x630dx11=[];if(newArtist[_0x8483[20]]> 29){_0x630dx11[_0x8483[21]](artist)};if(newAlbum[_0x8483[20]]> 29){_0x630dx11[_0x8483[21]](artist)};if(newSong[_0x8483[20]]> 17){_0x630dx11[_0x8483[21]](song)}}function displayData(){if(newSong=== lastSong){return};lastSong= newSong;if(newSong[_0x8483[20]]&&  !shown){container[_0x8483[16]][_0x8483[15]](_0x8483[17]);songName[_0x8483[16]][_0x8483[18]](_0x8483[22]);artistsElement[_0x8483[16]][_0x8483[18]](_0x8483[22]);shown= true};if(!newSong[_0x8483[20]]&& shown){shown= false};scrollingSong= false;scrollingArtists= false;setInterval(function(){artistsElement[_0x8483[23]]= newArtist;const _0x630dx13=container[_0x8483[24]]- 108;void(artistsElement[_0x8483[24]]);if(artistsElement[_0x8483[24]]> _0x630dx13){if(!scrollingArtists){scrollingArtists= true;artistsElement[_0x8483[16]][_0x8483[15]](_0x8483[22])}}else {if(scrollingArtists){scrollingArtists= false;artistsElement[_0x8483[16]][_0x8483[18]](_0x8483[22])}}},550);setInterval(function(){songName[_0x8483[23]]= newSong;const _0x630dx13=container[_0x8483[24]]- 108;void(songName[_0x8483[24]]);if(songName[_0x8483[24]]> _0x630dx13){if(!scrollingSong){scrollingSong= true;songName[_0x8483[16]][_0x8483[15]](_0x8483[22])}}else {if(scrollingSong){scrollingSong= false;songName[_0x8483[16]][_0x8483[18]](_0x8483[22])}};songName[_0x8483[16]][_0x8483[15]](_0x8483[17])},750);newAlbumCover[_0x8483[25]]= newAlbum;$(_0x8483[29])[_0x8483[28]]({'\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x2D\x69\x6D\x61\x67\x65':_0x8483[26]+ newAlbum+ _0x8483[27]})}
+
+async function checkUpdate() {
+$.get("Snip_Artist.txt", function(art) {
+  newArtist = art.replace(/&amp;/g, "&");
+}).then(
+$.get("Snip_Artwork.txt", function(art) {
+  newAlbum = art.replace(/&amp;/g, "&");
+}).then(
+$.get("Snip_Track.txt", function(sng) {
+  newSong = sng.replace(/&amp;/g, "&");
+}))).then();
+
+displayData();
+gsap.delayedCall(2, checkUpdate);
+}
+
+async function getInfo(file) {
+const response = await fetch(file, {cache: "no-cache" });
+const text = await response.text();
+return text.replace(/&amp;/g, "&");
+}
+
+})();
+
+    </script>
